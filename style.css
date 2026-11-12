@@ -1,0 +1,851 @@
+/* ==========================================================================
+   EcoFoz — style.css
+   Todo o visual do site: cores, tipografia, layout responsivo, cards,
+   botões, mapa, capa de entrada e tema claro/escuro.
+   ========================================================================== */
+
+/* ---------- Variáveis de cor e base ---------- */
+:root {
+  --ink: #17372b;
+  --muted: #64766b;
+  --green: #227a4c;
+  --lime: #b9e77d;
+  --cream: #f7f8f2;
+  --line: #dfe8d9;
+  --paper: #fff;
+  --orange: #eea252;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: var(--lime); color: var(--ink); }
+
+[hidden] { display: none !important; }
+
+.site-shell { overflow: hidden; }
+
+/* ---------- Barra superior ---------- */
+.topbar {
+  height: 80px;
+  max-width: 1240px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 0 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 21px 'Plus Jakarta Sans', sans-serif;
+  color: var(--ink);
+  letter-spacing: -.05em;
+}
+.brand strong { color: var(--green); }
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: var(--green);
+  border-radius: 11px 11px 11px 3px;
+}
+
+.nav-links { display: flex; gap: 32px; margin-left: auto; }
+.nav-links a {
+  color: #587063;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--green); }
+
+.text-button {
+  border: 0;
+  background: none;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.text-button span { font-size: 19px; }
+
+/* Emblemas oficiais (canto superior direito, discretos) */
+.institutional-logos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 4px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
+}
+.institutional-logos img {
+  width: 31px;
+  height: 31px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+}
+.institutional-logos img:first-child { border-radius: 5px; }
+
+/* Botão de alternância de tema */
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #c9dcc7;
+  background: #fff;
+  color: #3b7650;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: transform .25s;
+}
+.theme-toggle:hover { transform: rotate(18deg); }
+
+/* ---------- Hero (destaque inicial) ---------- */
+.hero {
+  max-width: 1240px;
+  margin: 0 auto;
+  min-height: 535px;
+  padding: 82px 28px 70px;
+  display: flex;
+  position: relative;
+}
+.hero-copy { width: 55%; z-index: 2; }
+
+.eyebrow, .section-kicker {
+  font-size: 10px;
+  font-weight: 800;
+  color: #799082;
+  letter-spacing: .16em;
+}
+.eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 24px; }
+.eyebrow-dot { width: 5px; height: 5px; background: #a8c86c; border-radius: 50%; }
+
+.hero h1 {
+  font: 800 clamp(45px, 6vw, 78px)/.99 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -.07em;
+  margin: 0;
+  color: #1e4934;
+}
+.hero h1 em { color: var(--green); font-style: normal; }
+
+.hero-copy > p {
+  max-width: 435px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 26px 0 31px;
+}
+
+.hero-actions { display: flex; align-items: center; gap: 28px; }
+
+.primary-button {
+  border: 0;
+  background: var(--green);
+  color: #fff;
+  border-radius: 100px;
+  padding: 14px 21px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px #227a4c26;
+  transition: transform .2s, background .2s;
+}
+.primary-button:hover { background: #155d38; transform: translateY(-2px); }
+
+.hero-art { position: absolute; right: 4%; top: 25px; width: 49%; height: 470px; }
+
+.art-circle {
+  position: absolute;
+  right: 3%;
+  top: 8px;
+  width: 410px;
+  height: 410px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #c8e8a5;
+  box-shadow: 0 0 0 22px #e5f0d9;
+}
+.art-circle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, #153f2b22, #1c6b3b66);
+}
+.art-circle img { width: 100%; height: 100%; object-fit: cover; }
+
+.floating-note {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 95px;
+  background: #fffdf3;
+  border-radius: 13px;
+  padding: 15px 20px;
+  display: flex;
+  gap: 13px;
+  box-shadow: 0 15px 30px #1d453025;
+  font-size: 12px;
+  color: #5b7062;
+  animation: note-float 5s ease-in-out infinite;
+}
+.floating-note > span { font-size: 24px; color: #e2a44e; }
+.floating-note b { font: 700 13px 'Plus Jakarta Sans', sans-serif; color: var(--ink); }
+
+.leaf-doodle {
+  position: absolute;
+  right: 5px;
+  bottom: 40px;
+  color: #86b56c;
+  font-size: 54px;
+  transform: rotate(28deg);
+}
+
+@keyframes note-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ---------- Faixa de números ---------- */
+.stat-strip {
+  background: #dbecca;
+  min-height: 125px;
+  padding: 25px max(calc((100% - 1184px) / 2), 28px);
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  color: #346044;
+}
+.stat-strip > div:not(.stat-message) { display: flex; align-items: center; gap: 12px; }
+.stat-strip b { font: 700 38px 'Plus Jakarta Sans', sans-serif; letter-spacing: -.06em; }
+.stat-strip span { font-size: 11px; line-height: 1.35; }
+.stat-message {
+  margin-left: auto;
+  font: 500 17px/1.45 'Plus Jakarta Sans', sans-serif;
+  color: #366947;
+}
+.stat-message em { color: var(--green); font-style: normal; }
+
+/* ---------- Seções e títulos ---------- */
+.find-section, .guide-section {
+  max-width: 1184px;
+  margin: auto;
+  padding: 100px 20px 94px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 38px;
+}
+.section-heading h2 {
+  font: 700 37px/1.15 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -.055em;
+  margin: 12px 0 0;
+  color: #1d4b34;
+}
+.section-heading > p {
+  max-width: 300px;
+  margin: 0 30px 4px 0;
+  color: #728176;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* ---------- Card de busca e filtros ---------- */
+.finder-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 20px 23px;
+  margin-bottom: 24px;
+}
+.finder-controls { display: flex; gap: 10px; }
+
+.search-field {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f5f8f2;
+  border: 1px solid #e2e9de;
+  border-radius: 8px;
+  padding: 0 14px;
+  flex: 1;
+  color: #71917b;
+}
+.search-field input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  flex: 1;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.location-button, .search-button {
+  height: 48px;
+  border-radius: 8px;
+  padding: 0 18px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid #cfdfca;
+  background: #fff;
+  color: #37704b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.location-button:hover { background: #eff7eb; }
+.search-button { background: var(--green); border-color: var(--green); color: #fff; }
+.search-button:hover { background: #155d38; }
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 17px;
+  color: #849388;
+  font-size: 11px;
+}
+.filter {
+  border: 1px solid #dde7da;
+  background: #fff;
+  color: #668070;
+  border-radius: 100px;
+  padding: 7px 12px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.filter:hover, .filter.active { background: #e2f2d1; border-color: #badb9f; color: #236442; }
+
+/* ---------- Mapa + lista de pontos ---------- */
+.results-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px; }
+
+.map-panel {
+  min-height: 390px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  background: #dae7ca;
+  border: 1px solid #cbdcc0;
+}
+
+/* Elemento onde o Leaflet desenha o mapa */
+#map { position: absolute; inset: 0; z-index: 1; font-family: 'DM Sans', sans-serif; }
+
+.map-label {
+  position: absolute;
+  z-index: 1000;
+  left: 60px;
+  top: 16px;
+  right: 17px;
+  background: #fffffff0;
+  border-radius: 8px;
+  padding: 11px 13px;
+  font-size: 10px;
+  letter-spacing: .1em;
+  font-weight: 800;
+  color: #49705a;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  pointer-events: none;
+}
+.map-label span { margin-left: auto; color: #98a59b; font-weight: 500; letter-spacing: 0; }
+
+.map-locate {
+  position: absolute;
+  z-index: 1000;
+  bottom: 15px;
+  left: 15px;
+  border: 0;
+  border-radius: 8px;
+  background: #ffffffeb;
+  color: #3f7650;
+  padding: 10px 13px;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  cursor: pointer;
+}
+.map-locate:hover { background: #fff; }
+
+/* Popup do Leaflet */
+.leaflet-control-attribution { font-size: 8px !important; }
+.leaflet-popup-content-wrapper { border-radius: 10px; }
+.leaflet-popup-content { font-family: 'DM Sans', sans-serif; font-size: 12px; line-height: 1.5; margin: 12px 14px; }
+.leaflet-popup-content strong { font-family: 'Plus Jakarta Sans', sans-serif; color: #24583a; }
+
+/* Link "Como chegar" dentro do popup do mapa */
+.popup-route {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+  padding: 6px 11px;
+  border-radius: 100px;
+  background: var(--green);
+  color: #fff !important;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.popup-route:hover { background: #155d38; }
+
+/* ---------- Lista de pontos ---------- */
+.point-list { min-height: 390px; }
+
+.list-header {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #7b8b80;
+  font-size: 11px;
+  font-weight: 700;
+}
+.list-city { display: flex; align-items: center; gap: 4px; color: #3e7952; }
+
+.point-card {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 16px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 9px;
+  cursor: pointer;
+  transition: border .2s, transform .2s, box-shadow .2s;
+}
+.point-card:hover, .point-card.selected {
+  border-color: #a9d197;
+  transform: translateX(3px);
+  box-shadow: 0 7px 16px #2d6d3512;
+}
+.point-card:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+.point-number { font: 700 14px 'Plus Jakarta Sans', sans-serif; color: #a4b4a4; padding-top: 2px; }
+
+.point-info { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.point-info > b { font: 700 13px 'Plus Jakarta Sans', sans-serif; color: #28553b; }
+.point-info small { font-size: 11px; color: #7b8d81; display: flex; align-items: center; gap: 4px; }
+
+.distance-line { color: #3f8a53 !important; font-weight: 700; }
+
+/* Selo "Aberto agora" / "Fechado" conforme o horário de funcionamento */
+.open-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 7px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.open-badge.aberto { background: #dcf2cf; color: #2c7a3f; }
+.open-badge.fechado { background: #f7e4de; color: #b05a47; }
+.leaflet-popup-content .open-badge { margin: 4px 0 2px; }
+
+.material-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px; }
+.material-tags i {
+  font-style: normal;
+  font-size: 9px;
+  padding: 4px 7px;
+  background: #eef7e9;
+  border-radius: 4px;
+  color: #528062;
+}
+
+/* Botão "Como chegar": abre o trajeto no app de mapas do celular */
+.route-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+  padding: 6px 11px;
+  border: 1px solid #bfd8b4;
+  border-radius: 100px;
+  background: #f2f9ec;
+  color: #2d6c41;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  width: fit-content;
+  transition: background .2s, color .2s;
+}
+.route-button:hover { background: var(--green); border-color: var(--green); color: #fff; }
+
+.point-arrow { color: #adc2ad; margin-top: 7px; flex: none; }
+
+.empty-state {
+  background: #fff;
+  border: 1px dashed #c8d9c1;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  color: #789080;
+  font-size: 13px;
+}
+
+/* ---------- Guia de materiais ---------- */
+.guide-section { border-top: 1px solid #e1e9dd; }
+.guide-heading { margin-bottom: 35px; }
+.guide-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+
+.guide-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  padding: 19px 15px;
+  min-height: 184px;
+  transition: transform .2s, box-shadow .2s;
+}
+.guide-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px #356a4012; }
+
+.guide-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+.guide-icon.lime { background: #def0c6; color: #55924f; }
+.guide-icon.sky { background: #d6edf1; color: #4d9199; }
+.guide-icon.teal { background: #d3ece0; color: #3e8e70; }
+.guide-icon.amber, .guide-icon.orange { background: #f9e6c5; color: #bc7e31; }
+.guide-icon.violet { background: #e5ddf0; color: #775b98; }
+.guide-icon.blue { background: #d8e8f2; color: #4d799b; }
+.guide-icon.yellow { background: #faefc2; color: #b09234; }
+.guide-icon.rose { background: #f4dfe0; color: #b35d65; }
+.guide-icon.pink { background: #efdfe9; color: #9a6685; }
+
+.guide-card h3 { font: 700 14px 'Plus Jakarta Sans', sans-serif; color: #2b543d; margin: 0 0 12px; }
+
+.guide-line { display: flex; gap: 6px; font-size: 10px; line-height: 1.35; margin-top: 7px; color: #718377; }
+.guide-line svg { flex: none; margin-top: 1px; }
+.guide-line b { font-weight: 700; }
+.guide-line.yes svg { color: #54a064; }
+.guide-line.no svg { color: #d17f70; }
+
+.guide-destination {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 11px;
+  color: #3e7952;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.guide-find-button {
+  border: 0;
+  background: transparent;
+  color: #668a70;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 0 0;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.guide-find-button:hover { color: var(--green); }
+
+/* ---------- Painel de impacto ---------- */
+.impact-section {
+  max-width: 1184px;
+  margin: 0 auto 94px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.impact-intro h2 {
+  font: 700 37px/1.12 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -.055em;
+  color: #1d4b34;
+  margin: 12px 0 16px;
+}
+.impact-intro h2 em { color: var(--green); font-style: normal; }
+.impact-intro p { max-width: 290px; color: #728176; font-size: 14px; line-height: 1.65; }
+
+.impact-panel { background: #e0efd2; border-radius: 17px; padding: 12px; border: 1px solid #cadfbd; }
+
+.impact-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.impact-tab {
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 12px;
+  background: transparent;
+  color: #68806b;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.impact-tab span { font-size: 17px; }
+.impact-tab.active { background: #fffdf7; color: #24613d; box-shadow: 0 4px 12px #2f633015; }
+
+.impact-result {
+  margin-top: 10px;
+  padding: 28px 25px;
+  border-radius: 12px;
+  background: #fffdf7;
+  display: flex;
+  gap: 23px;
+  align-items: center;
+  min-height: 210px;
+}
+
+.impact-ring {
+  flex: none;
+  width: 106px;
+  height: 106px;
+  border-radius: 50%;
+  background: #c5e89c;
+  color: #277045;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 7px solid #e5f3d5;
+  box-shadow: 0 0 0 1px #a8d183;
+}
+.impact-ring-icon { font-size: 26px; line-height: 1; margin-bottom: 2px; }
+.impact-ring b { font: 800 22px 'Plus Jakarta Sans', sans-serif; line-height: 1; }
+.impact-ring small { text-align: center; font-size: 9px; line-height: 1.2; }
+
+.impact-result h3 {
+  font: 700 20px/1.2 'Plus Jakarta Sans', sans-serif;
+  color: #24583a;
+  margin: 9px 0 7px;
+  letter-spacing: -.035em;
+}
+.impact-result p { margin: 0 0 11px; color: #718377; font-size: 12px; line-height: 1.55; }
+.impact-result strong { color: #328052; font-size: 11px; }
+
+/* ---------- Rodapé ---------- */
+.site-shell footer {
+  max-width: 1184px;
+  border-top: 1px solid #dce6d9;
+  margin: auto;
+  padding: 25px 0 38px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: #849288;
+  font-size: 11px;
+}
+.site-shell footer span:last-child { margin-left: auto; }
+
+/* ---------- Capa de entrada ---------- */
+.welcome-screen {
+  min-height: 100vh;
+  background: #e8f1df;
+  color: var(--ink);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px max(calc((100% - 1184px) / 2), 7vw);
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  animation: welcome-in .65s ease both;
+}
+
+.welcome-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font: 700 23px 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -.05em;
+  margin-bottom: 82px;
+}
+.welcome-brand strong { color: var(--green); }
+
+.welcome-content h1 {
+  font: 800 clamp(47px, 6vw, 76px)/.98 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -.075em;
+  margin: 15px 0 23px;
+  color: #1e4934;
+}
+.welcome-content h1 em { color: var(--green); font-style: normal; }
+
+.welcome-content p { color: #607968; font-size: 16px; line-height: 1.65; max-width: 390px; margin: 0 0 30px; }
+.welcome-button { padding: 16px 23px; }
+.welcome-content small { display: block; color: #779181; font-size: 11px; margin-top: 20px; }
+
+.welcome-illustration {
+  width: min(44vw, 550px);
+  height: min(44vw, 550px);
+  position: relative;
+  z-index: 1;
+  animation: welcome-float 6s ease-in-out infinite;
+}
+.welcome-illustration img {
+  width: 76%;
+  height: 76%;
+  position: absolute;
+  inset: 12%;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 0 19px #d2e5c1, 0 24px 45px #55765235;
+}
+.welcome-glow { position: absolute; inset: 0; border-radius: 50%; background: #b9d99f; }
+.welcome-leaf { position: absolute; z-index: 3; right: 3%; bottom: 7%; font-size: 70px; color: #5c9b58; transform: rotate(24deg); }
+
+.welcome-orbit { position: absolute; border: 1px solid #bbd6ad; border-radius: 50%; opacity: .7; }
+.orbit-one { width: 850px; height: 850px; right: -240px; top: -140px; }
+.orbit-two { width: 570px; height: 570px; left: -250px; bottom: -250px; }
+
+@keyframes welcome-in {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes welcome-float {
+  0%, 100% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(-12px) rotate(-1deg); }
+}
+
+/* ---------- Tema escuro ---------- */
+.theme-dark { background: #14221b; color: #e5f0e5; }
+.theme-dark .brand, .theme-dark .section-heading h2, .theme-dark .hero h1,
+.theme-dark .guide-card h3, .theme-dark .impact-intro h2, .theme-dark .impact-result h3 { color: #e8f4e6; }
+.theme-dark .nav-links a, .theme-dark .hero-copy > p, .theme-dark .section-heading > p,
+.theme-dark .point-info small, .theme-dark .guide-line, .theme-dark footer { color: #a4b8a5; }
+.theme-dark .finder-card, .theme-dark .point-card, .theme-dark .guide-card,
+.theme-dark .impact-result, .theme-dark .search-field { background: #1d3227; border-color: #385342; }
+.theme-dark .finder-card, .theme-dark .point-card, .theme-dark .guide-card { box-shadow: none; }
+.theme-dark .search-field input, .theme-dark .filter, .theme-dark .location-button { color: #d9e9d8; }
+.theme-dark .filter, .theme-dark .location-button, .theme-dark .theme-toggle { background: #20392b; border-color: #46634e; }
+.theme-dark .filter.active, .theme-dark .filter:hover { background: #315a3c; color: #d7f1c8; }
+.theme-dark .stat-strip { background: #203d2c; color: #c6e1bc; }
+.theme-dark .guide-section { border-color: #2b4435; }
+.theme-dark .impact-panel { background: #203d2c; border-color: #3c6146; }
+.theme-dark .impact-tab { color: #b0c7ae; }
+.theme-dark .impact-tab.active { background: #294936; color: #e1f3d9; }
+.theme-dark .distance-line, .theme-dark .guide-destination { color: #aee098 !important; }
+.theme-dark .open-badge.aberto { background: #264a33; color: #a9e2a9; }
+.theme-dark .open-badge.fechado { background: #4a2f2a; color: #e2a495; }
+.theme-dark .point-info > b { color: #cfe6cd; }
+.theme-dark .material-tags i { background: #29493a; color: #a9cf9f; }
+.theme-dark .route-button { background: #20392b; border-color: #46634e; color: #b8dcb0; }
+.theme-dark .route-button:hover { background: var(--green); color: #fff; }
+.theme-dark .map-panel { border-color: #385342; }
+.theme-dark .map-label, .theme-dark .map-locate { background: #1d3227f0; color: #b8d4b4; }
+.theme-dark .empty-state { background: #1d3227; border-color: #46634e; color: #a4b8a5; }
+.theme-dark .site-shell footer, .theme-dark footer { border-color: #2b4435; }
+.theme-dark .institutional-logos { border-color: #2b4435; }
+.theme-dark .floating-note { background: #20392b; color: #a4b8a5; }
+.theme-dark .floating-note b { color: #e8f4e6; }
+
+/* ---------- Responsivo: tablets ---------- */
+@media (max-width: 900px) {
+  .hero { min-height: 650px; }
+  .hero-copy { width: 64%; }
+  .hero-art { opacity: .75; right: -9%; top: 180px; }
+  .stat-strip { gap: 28px; }
+  .guide-grid { grid-template-columns: repeat(3, 1fr); }
+  .find-section, .guide-section { padding-top: 70px; }
+  .impact-section { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ---------- Responsivo: celulares ---------- */
+@media (max-width: 650px) {
+  .topbar { height: 68px; padding: 0 18px; gap: 14px; }
+  .nav-links { display: none; }
+  .hero { padding: 55px 20px 40px; min-height: 570px; }
+  .hero-copy { width: 100%; }
+  .hero h1 { font-size: 51px; }
+  .hero-copy > p { max-width: 325px; }
+  .hero-art { width: 100%; top: 275px; right: -30%; opacity: .45; }
+  .art-circle { width: 330px; height: 330px; }
+  .floating-note { left: 2px; bottom: 20px; }
+  .stat-strip { padding: 22px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .stat-message { grid-column: 1/-1; margin: 4px 0 0; font-size: 14px; }
+  .section-heading { display: block; }
+  .section-heading > p { margin: 17px 0 0; }
+  .section-heading h2 { font-size: 30px; }
+  .finder-card { padding: 14px; }
+  .finder-controls { flex-wrap: wrap; }
+  .search-field { flex: 1 1 100%; }
+  .location-button { flex: 1; }
+  .search-button { flex: 1; justify-content: center; }
+  .results-layout { grid-template-columns: 1fr; }
+  .map-panel { min-height: 300px; }
+  .guide-grid { grid-template-columns: repeat(2, 1fr); }
+  .guide-card { min-height: 195px; }
+  .site-shell footer { margin: 0 20px; flex-wrap: wrap; }
+  .site-shell footer span:last-child { margin-left: 0; }
+  .impact-section { margin-bottom: 60px; }
+  .impact-intro h2 { font-size: 30px; }
+  .impact-result { padding: 20px 15px; gap: 14px; align-items: flex-start; }
+  .impact-ring { width: 78px; height: 78px; border-width: 5px; }
+  .impact-ring-icon { font-size: 20px; }
+  .impact-ring b { font-size: 17px; }
+  .impact-result h3 { font-size: 16px; }
+  .institutional-logos { gap: 4px; padding-left: 7px; margin-left: 0; }
+  .institutional-logos img { width: 25px; height: 25px; }
+  .theme-toggle { width: 27px; height: 27px; font-size: 15px; }
+}
+
+@media (max-width: 700px) {
+  .welcome-screen { min-height: 100svh; display: block; padding: 35px 24px; }
+  .welcome-brand { margin-bottom: 60px; }
+  .welcome-content h1 { font-size: 51px; }
+  .welcome-content p { font-size: 14px; }
+  .welcome-illustration { width: 78vw; height: 78vw; margin: 55px auto 0; }
+  .welcome-leaf { font-size: 47px; }
+}

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoFoz — Descarte certo em Foz do Iguaçu</title>
+  <meta name="description" content="Guia de reciclagem de Foz do Iguaçu: encontre pontos de descarte de plástico, papel, vidro, óleo, pilhas, eletrônicos e mais.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23227a4c'/%3E%3Cpath d='M12 19a6 6 0 0 1-1-5.5C14.5 8 16 7 18 4c1 2 1.5 4 1.5 7 0 4.5-3.8 8-7.5 8Z' fill='%23fff'/%3E%3C/svg%3E">
+
+  <!-- Fontes do projeto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Folha de estilo do mapa (Leaflet) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+  <!-- Estilo principal do site -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================================================
+       CAPA DE ENTRADA (some ao clicar em "Entrar")
+       ================================================== -->
+  <div class="welcome-screen" id="welcome-screen" data-testid="welcome-screen">
+    <div class="welcome-orbit orbit-one"></div>
+    <div class="welcome-orbit orbit-two"></div>
+
+    <div class="welcome-content">
+      <div class="welcome-brand">
+        <span class="brand-mark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </span>
+        <span>Eco<strong>Foz</strong></span>
+      </div>
+      <span class="section-kicker">FOZ DO IGUAÇU · PR</span>
+      <h1>O futuro começa<br><em>no descarte.</em></h1>
+      <p>Um guia simples para encontrar o destino certo dos materiais e cuidar da cidade que a gente ama.</p>
+      <button class="primary-button welcome-button" id="continue-button" data-testid="continue-button">
+        Entrar no EcoFoz
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+      <small>Reciclar é um gesto local com impacto gigante.</small>
+    </div>
+
+    <div class="welcome-illustration">
+      <div class="welcome-leaf">✽</div>
+      <div class="welcome-glow"></div>
+      <img src="https://images.unsplash.com/photo-1781041005009-57835a048325?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxmb3olMjBkbyUyMGlndWFjdSUyMHBhcmFuYSUyMGJyYXzilCUyMG5hdHVyZXxlbnwwfHx8fDE3OTIwNzU0NDB8MA&ixlib=rb-4.1.0&q=85" alt="Cataratas do Iguaçu">
+    </div>
+  </div>
+
+  <!-- ==================================================
+       APLICAÇÃO PRINCIPAL (exibida após a capa)
+       ================================================== -->
+  <div class="site-shell" id="site-shell" hidden>
+
+    <!-- Barra superior: marca, navegação, tema e emblemas -->
+    <nav class="topbar">
+      <div class="brand" data-testid="brand-link">
+        <span class="brand-mark">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </span>
+        <span>Eco<strong>Foz</strong></span>
+      </div>
+      <div class="nav-links">
+        <a href="#encontre" data-testid="nav-find-link">Pontos de descarte</a>
+        <a href="#guia" data-testid="nav-guide-link">Guia de materiais</a>
+        <a href="#impacto" data-testid="nav-impact-link">Por que importa</a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" data-testid="theme-toggle" aria-label="Alternar tema">☾</button>
+      <div class="institutional-logos" data-testid="institutional-logos">
+        <img src="https://customer-assets-lxgj4vgw.emergentagent.net/job_descarte-certo-1/artifacts/18f93500c07bb060_Bras%C3%A3o_do_Paran%C3%A1.svg.webp" alt="Brasão do Paraná" data-testid="parana-logo">
+        <img src="https://customer-assets-lxgj4vgw.emergentagent.net/job_descarte-certo-1/artifacts/a517e7b708ec45a1_images.jfif" alt="Colégio Cívico-Militar Tarquínio dos Santos" data-testid="school-logo">
+      </div>
+    </nav>
+
+    <main>
+      <!-- Seção de destaque (hero) -->
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>FOZ DO IGUAÇU · PR</span><span class="eyebrow-dot"></span><span>UM GUIA PARA CUIDAR DA NOSSA CASA</span></div>
+          <h1>Descarte certo,<br><em>Foz mais verde.</em></h1>
+          <p>Encontre onde levar cada material e descubra, de um jeito simples, como fazer a sua parte pela cidade.</p>
+          <div class="hero-actions">
+            <a href="#encontre" class="primary-button" data-testid="hero-find-button">
+              Encontrar um ponto
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="#guia" class="text-button" data-testid="hero-guide-button">Ver o guia <span>↓</span></a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="art-circle">
+            <img src="https://images.unsplash.com/photo-1781041005009-57835a048325?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwxfHxmb3olMjBkbyUyMGlndWFjdSUyMHBhcmFuYSUyMGJyYXzilCUyMG5hdHVyZXxlbnwwfHx8fDE3OTIwNzU0NDB8MA&ixlib=rb-4.1.0&q=85" alt="Natureza de Foz do Iguaçu">
+          </div>
+          <div class="floating-note"><span>✦</span><div><b>Pequenas escolhas.</b><br><small>Grandes transformações.</small></div></div>
+          <div class="leaf-doodle">✽</div>
+        </div>
+      </section>
+
+      <!-- Faixa de números -->
+      <section class="stat-strip">
+        <div><b>10</b><span>categorias de<br>materiais</span></div>
+        <div><b id="stat-points-count">5</b><span>pontos em<br>Foz do Iguaçu</span></div>
+        <div><b>1</b><span>cidade.<br>Um movimento.</span></div>
+        <div class="stat-message">“Cada descarte consciente é um<br><em>gesto de cuidado.</em>”</div>
+      </section>
+
+      <!-- Busca, filtros, mapa e lista de pontos -->
+      <section class="find-section" id="encontre">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">ONDE DESCARTAR</span>
+            <h2>O destino certo<br>está mais perto.</h2>
+          </div>
+          <p>Busque por endereço, bairro ou CEP ou ative a localização para ordenar os pontos mais próximos.</p>
+        </div>
+
+        <div class="finder-card">
+          <div class="finder-controls">
+            <div class="search-field">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <input id="drop-point-search" data-testid="drop-point-search" placeholder="Busque por bairro, endereço ou CEP">
+            </div>
+            <button class="location-button" id="use-location-button" data-testid="use-location-button">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              <span>Encontrar perto de mim</span>
+            </button>
+            <button class="search-button" id="search-drop-points-button" data-testid="search-drop-points-button">Buscar</button>
+          </div>
+
+          <!-- Filtros por material -->
+          <div class="filter-row" id="filter-row">
+            <span>Filtrar por material:</span>
+            <button class="filter active" data-material="Todos" data-testid="material-filter-todos">Todos</button>
+            <button class="filter" data-material="Plástico" data-testid="material-filter-plástico">Plástico</button>
+            <button class="filter" data-material="Óleo" data-testid="material-filter-óleo">Óleo</button>
+            <button class="filter" data-material="Pilhas e baterias" data-testid="material-filter-pilhas-e-baterias">Pilhas e baterias</button>
+            <button class="filter" data-material="Eletrônicos" data-testid="material-filter-eletrônicos">Eletrônicos</button>
+            <button class="filter" data-material="Medicamentos" data-testid="material-filter-medicamentos">Medicamentos</button>
+          </div>
+        </div>
+
+        <div class="results-layout">
+          <!-- Painel do mapa -->
+          <div class="map-panel">
+            <div class="map-label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              FOZ DO IGUAÇU, PR <span id="map-count">5 pontos</span>
+            </div>
+            <!-- Elemento do mapa (Leaflet é inicializado no script.js) -->
+            <div id="map" data-testid="real-map"></div>
+            <button class="map-locate" id="map-location-button" data-testid="map-location-button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              <span>Minha localização</span>
+            </button>
+          </div>
+
+          <!-- Lista de pontos (preenchida pelo script.js) -->
+          <div class="point-list">
+            <div class="list-header">
+              <span id="list-count">5 pontos encontrados</span>
+              <span class="list-city">Foz do Iguaçu
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </span>
+            </div>
+            <div id="point-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Guia de materiais (cards gerados pelo script.js) -->
+      <section class="guide-section" id="guia">
+        <div class="section-heading guide-heading">
+          <div>
+            <span class="section-kicker">GUIA PRÁTICO</span>
+            <h2>O que fazer com<br>cada material.</h2>
+          </div>
+          <p>Escolha um material para descobrir o destino recomendado, o que pode ir junto e onde encontrar um ponto.</p>
+        </div>
+        <div class="guide-grid" id="guide-grid"></div>
+      </section>
+
+      <!-- Painel interativo de impacto -->
+      <section class="impact-section" id="impacto" data-testid="impact-section">
+        <div class="impact-intro">
+          <span class="section-kicker">POR QUE ISSO IMPORTA?</span>
+          <h2>O descarte certo<br><em>muda tudo.</em></h2>
+          <p>Escolha um item e veja o impacto positivo de dar a ele o destino correto.</p>
+        </div>
+        <div class="impact-panel">
+          <div class="impact-tabs" id="impact-tabs">
+            <button class="impact-tab active" data-impact="Óleo" data-testid="impact-tab-óleo"><span>◌</span>Óleo</button>
+            <button class="impact-tab" data-impact="Pilhas e baterias" data-testid="impact-tab-pilhas-e-baterias"><span>▣</span>Pilhas e baterias</button>
+            <button class="impact-tab" data-impact="Eletrônicos" data-testid="impact-tab-eletrônicos"><span>▦</span>Eletrônicos</button>
+          </div>
+          <div class="impact-result">
+            <div class="impact-ring"><span class="impact-ring-icon">♻</span><b>+1</b><small>escolha<br>consciente</small></div>
+            <div>
+              <span class="section-kicker">QUANDO VOCÊ ESCOLHE O DESTINO CERTO</span>
+              <h3 id="impact-title"></h3>
+              <p id="impact-text"></p>
+              <strong id="impact-fact"></strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="brand">
+        <span class="brand-mark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </span>
+        <span>Eco<strong>Foz</strong></span>
+      </div>
+      <span>Feito com cuidado para Foz do Iguaçu · PR</span>
+      <span>© 2026 EcoFoz</span>
+    </footer>
+  </div>
+
+  <!-- Biblioteca do mapa (Leaflet) e lógica do site -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
