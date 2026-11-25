@@ -21,142 +21,251 @@
    -------------------------------------------------------------------------- */
 const POINTS = [
   {
-    id: "ponto-1",
-    name: "Coleta Seletiva Vila A",
-    address: "Av. Silvio Américo Sasdelli, 1800",
-    neighborhood: "Vila A",
-    city: "Foz do Iguaçu",
-    zip: "85863-580",
-    hours: "Seg a sex, 08h às 17h",
-    days: [1, 2, 3, 4, 5],
-    open: 8,
-    close: 17,
-    materials: ["Plástico", "Papel", "Vidro", "Metal"],
-    lat: -25.4958,
-    lng: -54.5684,
+    "id": "1",
+    "name": "Droga Raia",
+    "address": "Av. Jorge Schimmelpfeng, 140",
+    "neighborhood": "Centro",
+    "materials": [
+      "Pilhas e baterias"
+    ],
+    "source": "https://sistema.gmclog.com.br/info/green?page=23&sf242398615=1",
+    "city": "Foz do Iguaçu",
+    "zip": "85851-110",
+    "hours": "Confirme antes de ir",
+    "lat": -25.547102,
+    "lng": -54.586896,
+    "phone": "(45) 99143-1717",
+    "geoSource": "https://buscacomercio.com/cidades/foz-do-iguacu/farmacias/droga-raia-3/",
+    "extraSource": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=4108300664383",
+    "type": "Logística reversa — pilhas portáteis; confirme tipos aceitos"
   },
   {
-    id: "ponto-2",
-    name: "Ecoponto Porto Meira",
-    address: "Rua Golfinho, 120",
-    neighborhood: "Porto Meira",
-    city: "Foz do Iguaçu",
-    zip: "85855-430",
-    hours: "Seg a sáb, 08h às 16h",
-    days: [1, 2, 3, 4, 5, 6],
-    open: 8,
-    close: 16,
-    materials: ["Eletrônicos", "Pilhas e baterias", "Lâmpadas"],
-    lat: -25.5786,
-    lng: -54.5623,
+    "id": "2",
+    "name": "Droga Raia",
+    "address": "Rua Xavier da Silva, 1229",
+    "neighborhood": "Centro",
+    "materials": [
+      "Pilhas e baterias"
+    ],
+    "source": "https://sistema.gmclog.com.br/info/green?page=23&sf242398615=1",
+    "city": "Foz do Iguaçu",
+    "zip": "85851-180",
+    "hours": "Confirme antes de ir",
+    "lat": -25.537694,
+    "lng": -54.576429,
+    "phone": "(45) 99155-5032",
+    "geoSource": "https://buscacomercio.com/cidades/foz-do-iguacu/farmacias/droga-raia-2/",
+    "extraSource": "https://cnes2.datasus.gov.br/Mod_Conjunto.asp?VCo_Unidade=4108300924458",
+    "type": "Logística reversa — pilhas portáteis; confirme tipos aceitos"
   },
   {
-    id: "ponto-3",
-    name: "Farmácia Solidária Central",
-    address: "Av. Brasil, 1450",
-    neighborhood: "Centro",
-    city: "Foz do Iguaçu",
-    zip: "85851-000",
-    hours: "Seg a sex, 09h às 18h",
-    days: [1, 2, 3, 4, 5],
-    open: 9,
-    close: 18,
-    materials: ["Medicamentos"],
-    lat: -25.5418,
-    lng: -54.5829,
+    "id": "3",
+    "name": "Droga Raia",
+    "address": "Av. Costa e Silva, 374",
+    "neighborhood": "Campos do Iguaçu",
+    "materials": [
+      "Pilhas e baterias"
+    ],
+    "source": "https://sistema.gmclog.com.br/info/green?page=23&sf242398615=1",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Confirme antes de ir",
+    "type": "Logística reversa — confirme tipos aceitos"
   },
   {
-    id: "ponto-4",
-    name: "Bazar Circular",
-    address: "Rua Almirante Barroso, 850",
-    neighborhood: "Centro",
-    city: "Foz do Iguaçu",
-    zip: "85851-010",
-    hours: "Ter a sáb, 09h às 18h",
-    days: [2, 3, 4, 5, 6],
-    open: 9,
-    close: 18,
-    materials: ["Roupas"],
-    lat: -25.545,
-    lng: -54.585,
+    "id": "4",
+    "name": "Droga Raia",
+    "address": "Av. República Argentina, 3236",
+    "neighborhood": "Centro",
+    "materials": [
+      "Pilhas e baterias"
+    ],
+    "source": "https://sistema.gmclog.com.br/info/green?page=23&sf242398615=1",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Confirme antes de ir",
+    "type": "Logística reversa — confirme tipos aceitos"
   },
   {
-    id: "ponto-5",
-    name: "Ecoponto Jardim São Paulo",
-    address: "Rua Mário de Andrade, 420",
-    neighborhood: "Jardim São Paulo",
-    city: "Foz do Iguaçu",
-    zip: "85856-120",
-    hours: "Seg a sex, 08h às 16h",
-    days: [1, 2, 3, 4, 5],
-    open: 8,
-    close: 16,
-    materials: ["Plástico", "Papel", "Vidro"],
-    lat: -25.5385,
-    lng: -54.5512,
+    "id": "5",
+    "name": "Droga Raia",
+    "address": "Av. Paraná, 292",
+    "neighborhood": "Centro",
+    "materials": [
+      "Pilhas e baterias"
+    ],
+    "source": "https://sistema.gmclog.com.br/info/green?page=23&sf242398615=1",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Confirme antes de ir",
+    "type": "Logística reversa — confirme tipos aceitos"
   },
   {
-    id: "ponto-6",
-    name: "UVR Graciela Barbosa",
-    address: "Rua Guimarães Rosa",
-    neighborhood: "Jardim América",
-    city: "Foz do Iguaçu",
-    zip: "85865-040",
-    hours: "Seg a sex, 08h às 17h",
-    days: [1, 2, 3, 4, 5],
-    open: 8,
-    close: 17,
-    materials: ["Plástico", "Papel", "Vidro", "Metal"],
-    lat: -25.5205664,
-    lng: -54.5915011,
+    "id": "6",
+    "name": "Droga Raia",
+    "address": "Av. José Maria de Brito, 1860",
+    "neighborhood": "Jardim Central",
+    "materials": [
+      "Pilhas e baterias"
+    ],
+    "source": "https://sistema.gmclog.com.br/info/green?page=23&sf242398615=1",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Confirme antes de ir",
+    "type": "Logística reversa — confirme tipos aceitos"
   },
   {
-    id: "ponto-7",
-    name: "UVR Manoel da Silva",
-    address: "Rua Iacanga",
-    neighborhood: "Jardim das Palmeiras",
-    city: "Foz do Iguaçu",
-    zip: "85859-560",
-    hours: "Seg a sex, 08h às 17h",
-    days: [1, 2, 3, 4, 5],
-    open: 8,
-    close: 17,
-    materials: ["Plástico", "Papel", "Vidro", "Metal"],
-    lat: -25.4957109,
-    lng: -54.5437341,
+    "id": "7",
+    "name": "Farmautil",
+    "address": "Av. Mário Filho, 1615",
+    "neighborhood": "Portal",
+    "materials": [
+      "Medicamentos"
+    ],
+    "source": "https://www.logmed.org.br/arquivos/atuais/pontos-de-descarte-29-04-2025.pdf",
+    "city": "Foz do Iguaçu",
+    "zip": "85859-000",
+    "hours": "Confirme antes de ir",
+    "type": "Logística reversa — cadastro de abril de 2025; confirme atendimento"
   },
   {
-    id: "ponto-8",
-    name: "UVR Pedro Colombeli",
-    address: "Rua Angatuba",
-    neighborhood: "Três Lagoas",
-    city: "Foz do Iguaçu",
-    zip: "85862-336",
-    hours: "Seg a sex, 08h às 17h",
-    days: [1, 2, 3, 4, 5],
-    open: 8,
-    close: 17,
-    materials: ["Plástico", "Papel", "Vidro", "Metal"],
-    lat: -25.473214,
-    lng: -54.5206589,
+    "id": "8",
+    "name": "Farmautil",
+    "address": "Av. República Argentina, 3654 sala 10",
+    "neighborhood": "Panorama",
+    "materials": [
+      "Medicamentos"
+    ],
+    "source": "https://www.logmed.org.br/arquivos/atuais/pontos-de-descarte-29-04-2025.pdf",
+    "city": "Foz do Iguaçu",
+    "zip": "85856-578",
+    "hours": "Confirme antes de ir",
+    "type": "Logística reversa — cadastro de abril de 2025; confirme atendimento"
   },
   {
-    id: "ponto-9",
-    name: "UVR Rosana Lemos Turmina",
-    address: "Rua Ronaldo Lopes",
-    neighborhood: "Morumbi",
-    city: "Foz do Iguaçu",
-    zip: "85857-050",
-    hours: "Seg a sex, 08h às 17h",
-    days: [1, 2, 3, 4, 5],
-    open: 8,
-    close: 17,
-    materials: ["Plástico", "Papel", "Vidro", "Metal"],
-    lat: -25.5316139,
-    lng: -54.5399505,
+    "id": "9",
+    "name": "Farmautil",
+    "address": "Av. das Cataratas, 794",
+    "neighborhood": "Yolanda",
+    "materials": [
+      "Medicamentos"
+    ],
+    "source": "https://www.logmed.org.br/arquivos/atuais/pontos-de-descarte-29-04-2025.pdf",
+    "city": "Foz do Iguaçu",
+    "zip": "85853-000",
+    "hours": "Confirme antes de ir",
+    "type": "Logística reversa — cadastro de abril de 2025; confirme atendimento"
   },
+  {
+    "id": "10",
+    "name": "Farmautil Vila A",
+    "address": "Av. Silvio Américo Sasdelli, 1999",
+    "neighborhood": "Vila A",
+    "materials": [
+      "Medicamentos"
+    ],
+    "source": "https://ecomed.eco.br/descarte/foz-do-iguacu-pr",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Seg–sáb 07h30–23h; dom 08h–23h",
+    "lat": -25.494257,
+    "lng": -54.563741,
+    "geoSource": "https://buscacomercio.com/cidades/foz-do-iguacu/farmacias/farmacia-farmautil/",
+    "extraSource": "https://www.farmautil.com.br/",
+    "phone": "(45) 3524-1205",
+    "type": "Logística reversa — confirmação recomendada"
+  },
+  {
+    "id": "11",
+    "name": "Projeto LixoTec",
+    "address": "Av. Bonito-Lindo, 720",
+    "neighborhood": "Portal da Foz",
+    "materials": [
+      "Eletrônicos"
+    ],
+    "source": "https://projetolixotec.com.br/",
+    "city": "Foz do Iguaçu",
+    "zip": "85859-386",
+    "hours": "Seg–sex 08h–16h",
+    "phone": "(45) 99947-3674",
+    "type": "Empresa/projeto de coleta agendada; confirme entrega presencial"
+  },
+  {
+    "id": "12",
+    "name": "UVR Manoel da Silva",
+    "address": "Rua Iacanga",
+    "neighborhood": "Jardim das Palmeiras",
+    "materials": [
+      "Entulho",
+      "Móveis"
+    ],
+    "source": "https://cgn.inf.br/noticia/767895/moradores-de-foz-podem-descartar-materiais-inertes-em-quatro-uvrs",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Confirme antes de ir",
+    "type": "Centro de triagem com ecoponto anunciado em 2022 — confirme atividade e limite de volume"
+  },
+  {
+    "id": "13",
+    "name": "UVR Graciela Barbosa",
+    "address": "Rua Guimarães Rosa",
+    "neighborhood": "Jardim América",
+    "materials": [
+      "Entulho",
+      "Móveis"
+    ],
+    "source": "https://cgn.inf.br/noticia/767895/moradores-de-foz-podem-descartar-materiais-inertes-em-quatro-uvrs",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Confirme antes de ir",
+    "type": "Centro de triagem com ecoponto anunciado em 2022 — confirme atividade e limite de volume"
+  },
+  {
+    "id": "14",
+    "name": "UVR Pedro Colombeli",
+    "address": "Rua Angatuba",
+    "neighborhood": "Três Lagoas",
+    "materials": [
+      "Entulho",
+      "Móveis"
+    ],
+    "source": "https://cgn.inf.br/noticia/767895/moradores-de-foz-podem-descartar-materiais-inertes-em-quatro-uvrs",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Confirme antes de ir",
+    "type": "Centro de triagem com ecoponto anunciado em 2022 — confirme atividade e limite de volume"
+  },
+  {
+    "id": "15",
+    "name": "UVR Rosana Lemos Turmina",
+    "address": "Rua Ronaldo Lopes",
+    "neighborhood": "Morumbi",
+    "materials": [
+      "Entulho",
+      "Móveis"
+    ],
+    "source": "https://cgn.inf.br/noticia/767895/moradores-de-foz-podem-descartar-materiais-inertes-em-quatro-uvrs",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Confirme antes de ir",
+    "type": "Centro de triagem com ecoponto anunciado em 2022 — confirme atividade e limite de volume"
+  },
+  {
+    "id": "16",
+    "name": "Óleo Ponto — Mercado Líder",
+    "address": "Av. Silvio Américo Sasdelli, 1943",
+    "neighborhood": "Vila A",
+    "materials": [
+      "Óleo"
+    ],
+    "source": "https://www.destino.foz.br/novas-tecnologias-do-programa-vila-a-inteligente-sao-instaladas-em-foz-do-iguacu/",
+    "city": "Foz do Iguaçu",
+    "zip": "",
+    "hours": "Confirme antes de ir",
+    "extraSource": "https://www.apras.org.br/wp-content/uploads/2026/03/LOJAS-PARTICIPANTES-DE-OLHO-NA-VALIDADE-2026.pdf",
+    "type": "Ponto anunciado em 2022 — atividade atual não confirmada"
+  }
 ];
-
 /* --------------------------------------------------------------------------
    2. DADOS — Guia prático dos materiais
    -------------------------------------------------------------------------- */
@@ -165,22 +274,27 @@ const GUIDE = [
   { name: "Papel", icon: "▤", color: "sky", yes: "Caixas, jornais e folhas secas", no: "Papel higiênico, guardanapos e papel engordurado", destination: "Coleta seletiva" },
   { name: "Vidro", icon: "◈", color: "teal", yes: "Garrafas e potes sem resíduos", no: "Espelhos, lâmpadas e vidros temperados", destination: "Coleta seletiva" },
   { name: "Metal", icon: "◉", color: "amber", yes: "Latas de alumínio e aço", no: "Latas com tinta ou produtos químicos", destination: "Coleta seletiva" },
-  { name: "Óleo", icon: "◌", color: "orange", yes: "Óleo de cozinha usado em garrafa fechada", no: "Jogar na pia, no vaso ou no solo", destination: "Ecoponto Porto Meira" },
-  { name: "Pilhas e baterias", icon: "▣", color: "violet", yes: "Pilhas, baterias e carregadores", no: "Misturar com o lixo comum", destination: "Ecoponto Porto Meira" },
-  { name: "Eletrônicos", icon: "▦", color: "blue", yes: "Celulares, cabos e computadores", no: "Desmontar ou descartar na coleta comum", destination: "Ecoponto Porto Meira" },
-  { name: "Lâmpadas", icon: "◒", color: "yellow", yes: "Fluorescentes e LED inteiras", no: "Quebrar ou colocar no reciclável", destination: "Ecoponto Porto Meira" },
-  { name: "Medicamentos", icon: "✚", color: "rose", yes: "Remédios vencidos e cartelas", no: "Descartar no vaso sanitário", destination: "Farmácia Solidária Central" },
-  { name: "Roupas", icon: "♧", color: "pink", yes: "Roupas limpas e calçados em bom estado", no: "Enviar peças molhadas ou contaminadas", destination: "Bazar Circular" },
+  { name: "Óleo", icon: "◌", color: "orange", yes: "Óleo de cozinha usado em garrafa fechada", no: "Jogar na pia, no vaso ou no solo", destination: "Coleta seletiva municipal; confirme orientação atual" },
+  { name: "Pilhas e baterias", icon: "▣", color: "violet", yes: "Pilhas e baterias portáteis; confirme os tipos aceitos", no: "Misturar com o lixo comum", destination: "Logística reversa / consulte os serviços" },
+  { name: "Eletrônicos", icon: "▦", color: "blue", yes: "Celulares, cabos e computadores", no: "Desmontar ou descartar na coleta comum", destination: "Logística reversa / consulte os serviços" },
+  { name: "Lâmpadas", icon: "◒", color: "yellow", yes: "Fluorescentes e LED inteiras", no: "Quebrar ou colocar no reciclável", destination: "Logística reversa / consulte os serviços" },
+  { name: "Medicamentos", icon: "✚", color: "rose", yes: "Remédios vencidos e cartelas", no: "Descartar no vaso sanitário", destination: "Farmácias participantes" },
+  { name: "Roupas", icon: "♧", color: "pink", yes: "Roupas limpas e calçados em bom estado", no: "Enviar peças molhadas ou contaminadas", destination: "Doação de peças em bom estado" },
 ];
 
 /* --------------------------------------------------------------------------
    3. DADOS — Painel de impacto ("Por que isso importa?")
    -------------------------------------------------------------------------- */
+GUIDE.push(
+{name:'Papelão',icon:'▤',color:'sky',yes:'Caixas limpas e secas',no:'Caixas engorduradas',destination:'Coleta seletiva'},
+{name:'Entulho',icon:'▦',color:'amber',yes:'Pequenas quantidades de tijolos e concreto',no:'Amianto e resíduos perigosos',destination:'Ecoponto autorizado'},
+{name:'Móveis',icon:'▣',color:'teal',yes:'Móveis usados',no:'Abandonar na rua',destination:'Doação ou ecoponto autorizado'},
+{name:'Pneus',icon:'◉',color:'blue',yes:'Pneus inservíveis',no:'Queimar ou deixar na rua',destination:'Revendedor ou ponto autorizado'});
 const IMPACT = {
   "Óleo": {
     title: "Uma garrafa de óleo não vai para a pia.",
     text: "Um litro de óleo pode contaminar milhares de litros de água. Guardar em uma garrafa e levar ao ponto certo protege os rios e evita entupimentos.",
-    fact: "1 L de óleo pode contaminar até 25.000 L de água",
+    fact: "Óleo na pia pode causar entupimentos e prejudicar a água",
   },
   "Pilhas e baterias": {
     title: "Pilhas merecem um destino especial.",
@@ -190,7 +304,7 @@ const IMPACT = {
   "Eletrônicos": {
     title: "Seu aparelho antigo ainda tem valor.",
     text: "Eletrônicos carregam materiais que podem ser reaproveitados. O descarte correto reduz a mineração e mantém substâncias perigosas longe da natureza.",
-    fact: "Até 80% de um eletrônico pode ter materiais reaproveitáveis",
+    fact: "Eletrônicos contêm materiais que podem ser recuperados",
   },
 };
 
@@ -242,14 +356,15 @@ function distanceKm(lat1, lng1, lat2, lng2) {
 
 // Link de trajeto: abre o app de mapas do celular já com a rota até o ponto
 function routeUrl(point) {
-  return `https://www.google.com/maps/dir/?api=1&destination=${point.lat},${point.lng}`;
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(point.name+", "+point.address+", Foz do Iguaçu, PR")}`;
 }
 
 // Texto de distância exibido no card do ponto
 function distanceLabel(point) {
+  if (!hasCoords(point)) return "Coordenadas pendentes";
   if (!state.userCoords) return "Ative a localização para ver a distância";
   const km = distanceKm(state.userCoords.latitude, state.userCoords.longitude, point.lat, point.lng);
-  return `${km.toFixed(1)} km de você`;
+  return `${km.toFixed(1)} km em linha reta`;
 }
 
 // Verifica se o ponto está aberto neste momento (dia e hora do visitante)
@@ -261,6 +376,7 @@ function isOpenNow(point, now = new Date()) {
 
 // Selo "Aberto agora" / "Fechado" (usado no card e no popup do mapa)
 function openBadge(point) {
+  if (!point.days) return "";
   const open = isOpenNow(point);
   return `<span class="open-badge ${open ? "aberto" : "fechado"}">● ${open ? "Aberto agora" : "Fechado"}</span>`;
 }
@@ -274,7 +390,7 @@ const siteShell = document.getElementById("site-shell");
 document.getElementById("continue-button").addEventListener("click", () => {
   welcomeScreen.hidden = true;
   siteShell.hidden = false;
-  initMap();       // o mapa só pode iniciar quando estiver visível na tela
+  initMap().then(applyFilters);       // o mapa só pode iniciar quando estiver visível na tela
   applyFilters();  // desenha lista e marcadores pela primeira vez
 });
 
@@ -291,15 +407,39 @@ themeToggle.addEventListener("click", () => {
 /* --------------------------------------------------------------------------
    9. MAPA (Leaflet + OpenStreetMap)
    -------------------------------------------------------------------------- */
-function initMap() {
+const hasCoords = p => Number.isFinite(p.lat) && Number.isFinite(p.lng);
+const normalize = t => t.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const status = (id,msg) => document.getElementById(id).textContent=msg;
+async function initMap() {
+  if(map) return;
+  if(!window.L) { status('map-status','Carregando mapa…');
+    for(const host of ['https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/','https://unpkg.com/leaflet@1.9.4/dist/']) {
+      try { await new Promise((resolve,reject)=>{const js=document.createElement('script');js.src=host+'leaflet.js';const timer=setTimeout(()=>{js.remove();reject();},5000);js.onload=()=>{clearTimeout(timer);resolve()};js.onerror=()=>{clearTimeout(timer);reject()};document.head.append(js)}); if(window.L) break; } catch(e) {}
+    }
+  }
+  if(!window.L){status('map-status','Mapa indisponível. Utilize a lista e os links de rota.');return;}
+  try {
   map = L.map("map").setView([-25.526, -54.558], 12);
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; OpenStreetMap contributors",
-  }).addTo(map);
+  // Serviço público de mapas raster; não utiliza o endpoint CARTO com chave.
+  const tiles = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+    attribution: 'Tiles &copy; Esri — HERE, Garmin, USGS, Intermap, INCREMENT P, NRCan, Esri Japan, METI, Esri China (Hong Kong), Esri Korea, Esri (Thailand), NGCC, OpenStreetMap contributors e comunidade GIS',
+    maxZoom: 19,
+    maxNativeZoom: 19,
+  });
+  let failed = false;
+  tiles.on("tileerror", () => {
+    if (failed) return;
+    failed = true;
+    map.removeLayer(tiles);
+    status("map-status", "Fundo cartográfico indisponível. Os marcadores com GPS continuam disponíveis; use Como chegar para ver as ruas.");
+  });
+  status("map-status", "");
+  tiles.addTo(map);
 
   // Garante o tamanho correto após a capa ser escondida
-  setTimeout(() => map.invalidateSize(), 100);
+  setTimeout(() => {if(map) map.invalidateSize()}, 100);
+  } catch(e) { map=null;status("map-status","Mapa indisponível; consulte a lista."); }
 }
 
 // Cria/atualiza os marcadores no mapa conforme a lista filtrada
@@ -308,11 +448,12 @@ function renderMarkers(list) {
   markers = {};
 
   list.forEach((point, index) => {
+    if (!hasCoords(point)) return;
     const selected = state.selectedId === point.id;
     const marker = L.circleMarker([point.lat, point.lng], {
       radius: selected ? 11 : 8,
-      color: selected ? "#d48646" : "#227a4c",
-      fillColor: selected ? "#d48646" : "#64a85d",
+      color: selected ? "#d48646" : (point.materials.includes("Medicamentos")?"#bd365f":"#7952b3"),
+      fillColor: selected ? "#d48646" : (point.materials.includes("Medicamentos")?"#e17c98":"#a58ad1"),
       fillOpacity: 0.9,
       weight: 3,
     });
@@ -344,12 +485,12 @@ function selectPoint(id, fly = true) {
     const active = markerId === id;
     marker.setStyle({
       radius: active ? 11 : 8,
-      color: active ? "#d48646" : "#227a4c",
-      fillColor: active ? "#d48646" : "#64a85d",
+      color: active ? "#d48646" : (POINTS.find(p=>p.id===markerId).materials.includes("Medicamentos")?"#bd365f":"#7952b3"),
+      fillColor: active ? "#d48646" : (POINTS.find(p=>p.id===markerId).materials.includes("Medicamentos")?"#e17c98":"#a58ad1"),
     });
   });
 
-  if (map && point) {
+  if (map && point && hasCoords(point)) {
     if (fly) map.flyTo([point.lat, point.lng], 15, { duration: 0.7 });
     markers[id]?.openPopup();
   }
@@ -362,15 +503,30 @@ const searchInput = document.getElementById("drop-point-search");
 const filterRow = document.getElementById("filter-row");
 
 document.getElementById("search-drop-points-button").addEventListener("click", () => {
-  state.search = searchInput.value;
-  applyFilters();
+  searchAddress();
 });
 
 searchInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    state.search = searchInput.value;
-    applyFilters();
+    searchAddress();
   }
+});
+
+// Busca local primeiro; endereço livre pode ser localizado pelo ViaCEP (CEP) ou Google Maps.
+function searchAddress() {
+  state.search = searchInput.value.trim();
+  applyFilters();
+  const q = state.search;
+  const output = document.getElementById("address-result");
+  output.replaceChildren();
+  if (!q) return;
+  const a = document.createElement("a");
+  a.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q + ", Foz do Iguaçu, PR, Brasil");
+  a.target = "_blank"; a.rel = "noopener"; a.textContent = "Localizar este endereço no Google Maps";
+  output.append("A busca interna consulta os pontos cadastrados. Para qualquer rua ou CEP: ", a);
+}
+document.getElementById("clear-search").addEventListener("click", () => {
+  searchInput.value = ""; state.search = ""; document.getElementById("address-result").replaceChildren(); setMaterial("Todos");
 });
 
 filterRow.addEventListener("click", (event) => {
@@ -390,11 +546,11 @@ function setMaterial(material) {
 
 // Aplica busca + filtro + ordenação por distância e redesenha a tela
 function applyFilters() {
-  const term = state.search.trim().toLowerCase();
+  const term = normalize(state.search.trim());
 
   let list = POINTS.filter((point) => {
-    const text = `${point.name} ${point.address} ${point.neighborhood} ${point.city} ${point.zip}`.toLowerCase();
-    const matchesSearch = !term || text.includes(term);
+    const text = normalize(`${point.name} ${point.address} ${point.neighborhood} ${point.city} ${point.zip} ${point.zip.replace(/-/g, "")}`);
+    const matchesSearch = !term || term.split(/\s+/).every(word => text.includes(word));
     const matchesMaterial = state.material === "Todos" || point.materials.includes(state.material);
     return matchesSearch && matchesMaterial;
   });
@@ -402,15 +558,16 @@ function applyFilters() {
   if (state.userCoords) {
     const { latitude, longitude } = state.userCoords;
     list = [...list].sort(
-      (a, b) => distanceKm(latitude, longitude, a.lat, a.lng) - distanceKm(latitude, longitude, b.lat, b.lng)
+      (a, b) => (hasCoords(a)?distanceKm(latitude, longitude, a.lat, a.lng):1e9) - (hasCoords(b)?distanceKm(latitude, longitude, b.lat, b.lng):1e9)
     );
   }
 
   renderList(list);
-  if (map) renderMarkers(list);
+  if (map) { renderMarkers(list); const mapped=list.filter(hasCoords); const bounds=mapped.map(p=>[p.lat,p.lng]); if(state.userCoords) bounds.push([state.userCoords.latitude,state.userCoords.longitude]); if(bounds.length) map.fitBounds(bounds,{padding:[45,65],maxZoom:15}); }
+  document.getElementById("service-info").hidden = !["Todos","Plástico","Papel","Papelão","Vidro","Metal","Óleo","Lâmpadas","Roupas","Pneus"].includes(state.material);
 
   document.getElementById("list-count").textContent = `${list.length} ${list.length === 1 ? "ponto encontrado" : "pontos encontrados"}`;
-  document.getElementById("map-count").textContent = `${list.length} ${list.length === 1 ? "ponto" : "pontos"}`;
+  document.getElementById("map-count").textContent = `${list.filter(hasCoords).length} no mapa / ${list.length} na lista`;
 }
 
 /* --------------------------------------------------------------------------
@@ -421,7 +578,7 @@ function renderList(list) {
   container.innerHTML = "";
 
   if (!list.length) {
-    container.innerHTML = '<div class="empty-state">Nenhum ponto encontrado. Tente outro bairro ou material.</div>';
+    container.innerHTML = '<div class="empty-state">Nenhum ponto cadastrado corresponde à busca e ao filtro. Limpe a busca ou consulte os serviços e o guia de materiais.</div>';
     return;
   }
 
@@ -437,7 +594,10 @@ function renderList(list) {
       <span class="point-number">${String(index + 1).padStart(2, "0")}</span>
       <span class="point-info">
         <b>${point.name}</b>
-        <small>${point.address} · ${point.neighborhood}</small>
+        <small>${point.address} · ${point.neighborhood} ${point.zip}</small>
+        <small>${point.type}</small><small>${point.phone || "Telefone não confirmado"}</small>
+        <small>Consulta: 24/11/2026 · ${hasCoords(point)?`GPS: ${point.lat}, ${point.lng}`:"Sem coordenadas verificadas"}</small>
+        <small><a href="${point.source}" target="_blank" rel="noopener">Fonte do descarte</a> ${point.geoSource?`<a href="${point.geoSource}" target="_blank" rel="noopener">Fonte GPS</a>`:""} ${point.extraSource?`<a href="${point.extraSource}" target="_blank" rel="noopener">Fonte adicional</a>`:""}</small>
         <small>${ICON.clock()} ${point.hours} ${openBadge(point)}</small>
         <small class="distance-line">${ICON.nav()} ${distanceLabel(point)}</small>
         <span class="material-tags">${point.materials.map((m) => `<i>${m}</i>`).join("")}</span>
@@ -451,7 +611,7 @@ function renderList(list) {
     card.addEventListener("keydown", (event) => {
       if (event.key === "Enter") selectPoint(point.id);
     });
-    card.querySelector(".route-button").addEventListener("click", (event) => event.stopPropagation());
+    card.querySelectorAll("a").forEach(a=>a.addEventListener("click",event=>event.stopPropagation()));
 
     container.appendChild(card);
   });
@@ -468,14 +628,16 @@ const locationButtons = [
 locationButtons.forEach((button) => button.addEventListener("click", locateUser));
 
 function locateUser() {
-  if (!navigator.geolocation) return;
+  if (!navigator.geolocation) {status("location-status","Localização indisponível neste navegador.");return;}
 
   navigator.geolocation.getCurrentPosition(
     ({ coords }) => {
       state.located = true;
       state.userCoords = coords;
+      state.search = ""; searchInput.value = ""; document.getElementById("address-result").replaceChildren();
 
       // Marcador azul da posição do visitante
+      if (map && window.L) {
       if (userMarker) userMarker.remove();
       userMarker = L.circleMarker([coords.latitude, coords.longitude], {
         radius: 9,
@@ -490,12 +652,14 @@ function locateUser() {
 
       map.flyTo([coords.latitude, coords.longitude], 13, { duration: 0.8 });
 
+      }
+      status("location-status","Distâncias em linha reta; endereços sem GPS ficam ao final.");
       locationButtons[0].querySelector("span").textContent = "Mais próximos primeiro";
       locationButtons[1].querySelector("span").textContent = "Você está aqui";
 
       applyFilters(); // reordena os pontos do mais perto ao mais longe
     },
-    () => { state.located = false; } // visitante negou a permissão
+    () => { state.located = false; status("location-status","Localização não autorizada ou indisponível. Use a busca; no celular prefira HTTPS."); }, {timeout:10000,maximumAge:60000} // visitante negou a permissão
   );
 }
 
@@ -553,5 +717,7 @@ document.getElementById("impact-tabs").addEventListener("click", (event) => {
    15. INICIALIZAÇÃO (guia e impacto não dependem do mapa)
    -------------------------------------------------------------------------- */
 document.getElementById("stat-points-count").textContent = POINTS.length;
+filterRow.innerHTML = `<span>Filtrar por material:</span>` + ["Todos",...GUIDE.map(g=>g.name)].map(m=>`<button class="filter ${m==="Todos"?"active":""}" data-material="${m}">${m==="Óleo"?"Óleo de cozinha":m}</button>`).join("");
+document.getElementById("stat-material-count").textContent=GUIDE.length;
 renderGuide();
 renderImpact("Óleo");

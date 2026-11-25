@@ -1,72 +1,25 @@
-# EcoFoz — Descarte Certo em Foz do Iguaçu
+# EcoFoz — Descarte certo em Foz do Iguaçu
 
-Site educativo sobre reciclagem em Foz do Iguaçu, PR. Ajuda o cidadão a
-descobrir **o que pode e não pode ser reciclado** e **onde descartar** cada
-material na cidade, com mapa interativo, busca e filtros.
+Projeto escolar estático. Extraia o ZIP e mantenha index.html, style.css, script.js e README.md juntos. Abra index.html no navegador ou abra a pasta no VS Code e use Live Server. No GitHub, envie os quatro arquivos à raiz da branch main; em Settings > Pages, escolha Deploy from a branch > main > / (root). Abra a URL publicada, não a página de código do repositório.
 
-## Como executar
+## Funcionamento
+14 materiais, 16 endereços documentados (incluindo cadastros históricos), três com coordenadas publicadas por fonte cartográfica de terceiros. Os demais aparecem somente na lista, com rota por endereço. As farmácias de pilhas aparecem em roxo e a de medicamentos em rosa. Não confunda ponto listado com serviço atualmente confirmado. A localização do usuário é opcional, depende do navegador e de contexto seguro (HTTPS ou localhost); distâncias em linha reta apenas para pontos com GPS.
 
-Não precisa instalar nada. Basta abrir o arquivo `index.html` em qualquer
-navegador (duplo clique) — o site funciona de forma totalmente estática.
+Leaflet 1.9.4 é carregado por CDN (jsDelivr, com alternativa unpkg para JS); mapa OpenStreetMap, fontes e imagens originais dependem de internet. Não há backend, chave, instalação ou build. Não foi possível baixar dependências para empacotar localmente, nem verificar disponibilidade das imagens remotas. Se mapa falhar, lista, filtros e guia permanecem disponíveis. Links de rota exigem internet. Busca procura dados cadastrados, não geocodifica qualquer endereço.
 
-## Arquivos do projeto
+## Fontes e manutenção
+Consulta documental: 24/11/2026. Não houve confirmação telefônica nem visita. Cada registro em POINTS, no script.js, contém fonte de descarte e, quando disponível, fonte GPS e fonte complementar. Só acrescente lat/lng depois de verificar a correspondência com o endereço. Horários desconhecidos não geram indicação de aberto/fechado.
 
-| Arquivo     | Conteúdo                                                                 |
-|-------------|--------------------------------------------------------------------------|
-| `index.html`| Estrutura da página: capa de entrada, cabeçalho, busca, filtros, mapa, guia de materiais, painel de impacto e rodapé. |
-| `style.css` | Todo o design: cores, tipografia, cards, botões, mapa, tema claro/escuro e layout responsivo. |
-| `script.js` | Toda a lógica: dados dos pontos de coleta, busca por bairro/endereço/CEP, filtros por material, mapa (Leaflet), geolocalização e alternância de tema. |
-| `README.md` | Este documento.                                                           |
+- Recicla Pilhas: https://sistema.gmclog.com.br/info/green?page=23&sf242398615=1
+- LogMed: https://www.logmed.org.br/arquivos/atuais/pontos-de-descarte-29-04-2025.pdf (cadastro histórico); https://logmed.org.br/onde-descartar
+- LixoTec: https://projetolixotec.com.br/ (coleta agendada; confirme entrega presencial).
+- UVRs: https://cgn.inf.br/noticia/767895/moradores-de-foz-podem-descartar-materiais-inertes-em-quatro-uvrs (publicação municipal reproduzida em 2022; confirme vigência dos ecopontos para entulho e móveis).
+- Coleta seletiva: https://www.google.com/maps/d/viewer?mid=1rAIoETLpyKsas0lupKjdEzwjglB1OFyr ; WhatsApp (45) 3308-2163 informado em notícia de 2026. Papel, papelão, vidro de embalagens, plástico e metal não são entulho. Óleo vegetal: coleta divulgada anteriormente; confirme orientação atual.
+- Óleo Ponto: https://www.destino.foz.br/novas-tecnologias-do-programa-vila-a-inteligente-sao-instaladas-em-foz-do-iguacu/ (2022, continuidade não confirmada).
+- Green Eletron, Reciclus e Reciclanip: localizadores indicados no site; não foi possível confirmar endereços específicos de lâmpadas, pneus ou doações de roupas.
 
-## Funcionalidades
+## Validação
+Sintaxe JavaScript verificada com node --check. Teste Chromium bloqueado por política do ambiente tanto em file:// quanto localhost. Download de Leaflet bloqueado por DNS; mapa real, links externos, geolocalização, layout e publicação GitHub Pages não puderam ser testados integralmente. Antes da entrega escolar: testar entrada, 14 filtros, pesquisa sem acento, três marcadores, rotas, tema, localização permitida/negada e abertura no celular. O site não é um cadastro oficial nem exaustivo.
 
-- **Capa de entrada** com botão "Entrar no EcoFoz".
-- **Mapa real** (Leaflet + OpenStreetMap) com 5 pontos de coleta de Foz do
-  Iguaçu e popups com endereço e materiais aceitos.
-- **Busca** por bairro, endereço, cidade ou CEP.
-- **Filtros por material**: Plástico, Óleo, Pilhas e baterias, Eletrônicos,
-  Medicamentos etc.
-- **Botão "Como chegar"** em cada ponto: abre o trajeto no aplicativo de
-  mapas do celular.
-- **Aviso de horário**: cada ponto mostra "Aberto agora" ou "Fechado" de
-  acordo com o dia e a hora do visitante.
-- **Geolocalização**: botão "Encontrar perto de mim" ordena os pontos do mais
-  próximo ao mais distante e mostra a distância em km.
-- **Guia prático** com 10 categorias de materiais (o que pode e o que não
-  pode ser descartado, e o destino correto de cada um).
-- **Painel interativo "Por que isso importa?"** com o impacto ambiental do
-  descarte correto de óleo, pilhas/baterias e eletrônicos.
-- **Tema claro e escuro** e layout responsivo para celular, tablet e computador.
-
-## Pontos de coleta cadastrados
-
-1. **Coleta Seletiva Vila A** — Av. Silvio Américo Sasdelli, 1800 · Vila A
-   (Plástico, Papel, Vidro e Metal)
-2. **Ecoponto Porto Meira** — Rua Golfinho, 120 · Porto Meira
-   (Eletrônicos, Pilhas e baterias e Lâmpadas)
-3. **Farmácia Solidária Central** — Av. Brasil, 1450 · Centro (Medicamentos)
-4. **Bazar Circular** — Rua Almirante Barroso, 850 · Centro (Roupas)
-5. **Ecoponto Jardim São Paulo** — Rua Mário de Andrade, 420 · Jardim São Paulo
-   (Plástico, Papel e Vidro — recicláveis secos)
-6. **UVR Graciela Barbosa** — Rua Guimarães Rosa · Jardim América
-   (Plástico, Papel, Vidro e Metal)
-7. **UVR Manoel da Silva** — Rua Iacanga · Jardim das Palmeiras
-   (Plástico, Papel, Vidro e Metal)
-8. **UVR Pedro Colombeli** — Rua Angatuba · Três Lagoas
-   (Plástico, Papel, Vidro e Metal)
-9. **UVR Rosana Lemos Turmina** — Rua Ronaldo Lopes · Morumbi
-   (Plástico, Papel, Vidro e Metal)
-
-> As UVRs são pontos fixos oficiais da Prefeitura de Foz do Iguaçu
-> (fonte: Secretaria de Meio Ambiente / g1 PR). Confira o horário antes de ir.
-
-## Tecnologias
-
-- HTML5, CSS3 e JavaScript puro (sem frameworks e sem build).
-- [Leaflet 1.9.4](https://leafletjs.com/) via CDN para o mapa, com tiles do
-  OpenStreetMap.
-- Fontes Google Fonts (Plus Jakarta Sans e DM Sans).
-
----
-
-© 2026 EcoFoz · Feito com cuidado para Foz do Iguaçu · PR
+## Correção do erro 403
+O mapa usa Leaflet e serviço raster Esri World Street Map, com atribuição. Se o serviço falhar, o fundo é removido e os marcadores continuam disponíveis. Requer internet e disponibilidade do provedor. A busca interna filtra pontos cadastrados; endereços livres abrem o Google Maps por link, não são geocodificados dentro do EcoFoz. A localização limpa o texto anterior e mantém o filtro de material. Distâncias somente para pontos com GPS.

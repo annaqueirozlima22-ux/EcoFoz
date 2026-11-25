@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Folha de estilo do mapa (Leaflet) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 
   <!-- Estilo principal do site -->
   <link rel="stylesheet" href="style.css">
@@ -102,8 +102,8 @@
 
       <!-- Faixa de números -->
       <section class="stat-strip">
-        <div><b>10</b><span>categorias de<br>materiais</span></div>
-        <div><b id="stat-points-count">5</b><span>pontos em<br>Foz do Iguaçu</span></div>
+        <div><b id="stat-material-count">14</b><span>categorias de<br>materiais</span></div>
+        <div><b id="stat-points-count">0</b><span>pontos em<br>Foz do Iguaçu</span></div>
         <div><b>1</b><span>cidade.<br>Um movimento.</span></div>
         <div class="stat-message">“Cada descarte consciente é um<br><em>gesto de cuidado.</em>”</div>
       </section>
@@ -122,7 +122,7 @@
           <div class="finder-controls">
             <div class="search-field">
               <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              <input id="drop-point-search" data-testid="drop-point-search" placeholder="Busque por bairro, endereço ou CEP">
+              <input id="drop-point-search" data-testid="drop-point-search" aria-label="Buscar ponto cadastrado por nome, endereço, bairro ou CEP" placeholder="Nome, bairro, endereço ou CEP">
             </div>
             <button class="location-button" id="use-location-button" data-testid="use-location-button">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
@@ -143,15 +143,17 @@
           </div>
         </div>
 
-        <div class="results-layout">
+        <button type="button" class="filter" id="clear-search">Limpar busca e filtros</button><p id="address-result" role="status"></p><p id="location-status" role="status"></p>
+        <aside id="service-info" class="service-info"><b>Coleta domiciliar e outros destinos</b><p>Papel, papelão, plástico, vidro de embalagens e metal: coleta seletiva municipal. Óleo de cozinha frio, em garrafa fechada: a coleta foi anunciada pelo município; confirme a orientação atual pelo 156 ou WhatsApp (45) 3308-2163.</p><p><a href="https://www.google.com/maps/d/viewer?mid=1rAIoETLpyKsas0lupKjdEzwjglB1OFyr" target="_blank" rel="noopener">Mapa municipal da coleta seletiva</a> · <a href="https://greeneletron.org.br/" target="_blank" rel="noopener">Green Eletron</a> · <a href="https://reciclus.org.br/" target="_blank" rel="noopener">Lâmpadas — Reciclus</a> · <a href="https://www.reciclanip.org.br/" target="_blank" rel="noopener">Pneus — Reciclanip</a>. Para roupas, consulte instituições de doação locais; não há endereço confirmado neste cadastro para essa categoria.</p><small>Fontes: <a href="https://foz.portaldacidade.com/noticias/cidade/descarte-correto-de-residuos-e-a-melhor-opcao-para-uma-cidade-limpa-e-saudavel-5035">orientação municipal</a> e <a href="https://elofoz.com.br/artigo/12624/Foz_do_Igua%C3%A7u_e_Regi%C3%A3o/50/saiba_o_que_pode_e_o_que_nao_pode_ser_destinado_a_coleta_seletiva_de_reciclaveis.html">contato atualizado</a>. Confirme antes de sair.</small></aside>
+        <p class="service-info">Mapa: roxo = pilhas; rosa = medicamentos. Apenas locais com GPS publicado aparecem no mapa. Os demais continuam na lista com endereço e rota.</p><div class="results-layout">
           <!-- Painel do mapa -->
           <div class="map-panel">
             <div class="map-label">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              FOZ DO IGUAÇU, PR <span id="map-count">5 pontos</span>
+              FOZ DO IGUAÇU, PR <span id="map-count">0 pontos</span>
             </div>
             <!-- Elemento do mapa (Leaflet é inicializado no script.js) -->
-            <div id="map" data-testid="real-map"></div>
+            <div id="map-status" role="status"></div><div id="map" data-testid="real-map"></div>
             <button class="map-locate" id="map-location-button" data-testid="map-location-button">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
               <span>Minha localização</span>
@@ -161,7 +163,7 @@
           <!-- Lista de pontos (preenchida pelo script.js) -->
           <div class="point-list">
             <div class="list-header">
-              <span id="list-count">5 pontos encontrados</span>
+              <span id="list-count">0 pontos encontrados</span>
               <span class="list-city">Foz do Iguaçu
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
               </span>
@@ -223,7 +225,7 @@
   </div>
 
   <!-- Biblioteca do mapa (Leaflet) e lógica do site -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
   <script src="script.js" defer></script>
 </body>
 </html>
